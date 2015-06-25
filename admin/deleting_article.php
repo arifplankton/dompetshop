@@ -17,10 +17,10 @@ include 'config.php';
 ?>
 
 <?php
-if(isset($_GET['id']))
+if(isset($_GET['blog_id']))
 {
-$id=$_GET['id'];
-$qry=mysql_query("DELETE FROM blog WHERE id='$id'", $con);
+$id=$_GET['blog_id'];
+$qry=mysql_query("DELETE FROM blog WHERE blog_id='$id'", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());

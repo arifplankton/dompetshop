@@ -17,10 +17,10 @@ include 'config.php';
 ?>
 
 <?php
-if(isset($_GET['kd_provinsi']))
+if(isset($_GET['provinsi_id']))
 {
-$kd_provinsi=$_GET['kd_provinsi'];
-$qry=mysql_query("DELETE FROM provinsi WHERE kd_provinsi='kd_provinsi'", $con);
+$id=$_GET['provinsi_id'];
+$qry=mysql_query("DELETE FROM provinsi WHERE  provinsi_id='$id'", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -29,7 +29,7 @@ else
 {
 ?><script language="javascript">
 			alert("Provinsi Sukses Di Hapus!!");
-			document.location="all_provinsi.php";
+			document.location="al_provinsi.php?id=viewall";
 			</script><?
 }
 }

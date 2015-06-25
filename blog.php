@@ -14,7 +14,7 @@
 /*
 Selecting the last added articles to display in the secton - "Breaking news" from the table "articles"
 */
-$qry=mysql_query("SELECT * FROM blog order by id desc ", $con);
+$qry=mysql_query("SELECT * FROM blog order by blog_id desc ", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -26,9 +26,10 @@ the php in-built function substr() is used to limit the no of characters display
 */
 while($row=mysql_fetch_array($qry))
 {
-echo "<h2>".$row['title']."</h2>";
 
-echo "<p>".substr($row['contents'],0,1000)."</br><a href=articles.php?id=".$row['id']." ><b> Read more</b></a></p>";
+echo "<h2>".$row['blog_judul']."</h2>";
+
+echo "<p>".substr($row['blog_isi'],0,1000)."</br><a href=articles.php?id=".$row['blog_id']." ><b> Read more</b></a></p>";
 }
 
 
@@ -39,7 +40,14 @@ echo "<p>".substr($row['contents'],0,1000)."</br><a href=articles.php?id=".$row[
      </div>
       </div>
     </div>
+
+                
+
     </body>
+                  <ul class="pager">
+                <li><a href="#">Previous</a></li>
+                <li><a href="#">Next</a></li>
+              </ul>
 
 </html>
 

@@ -1,32 +1,47 @@
-<?php
-include 'config.php';
-?>
+<?php 
 
-<?php
-$uname=$_POST['username'];
-$pass=$_POST['password'];
+// Connect to the database
+require('config.php'); 
 
-$qry=mysql_query("SELECT * FROM costumer WHERE username='$username'", $con);
-if(!$qry)
-{
-die("Query Fail ". mysql_error());
-}
-else
-{
-$row=mysql_fetch_array($qry);
-//echo $row["user"]." ".$row["password"]."<br/>";
 
-if($_POST['username']==$row["username"]&& md5($_POST['pass'])==$row["password"])
-{
-session_start();
-$_SESSION['name']=$_POST['username'];
-$uname=$_POST['username'];
-header("Location:index.php");
-}
-else
-{
-header("Location:index.php?id=username or password you entered is incorrect");
-}
-}
+// Set username and password variables for this script
+$user = mysql_real_escape_string($_POST["username"]);
+$pass = mysql_real_escape_string($_POST["password"]); 
 
+// Make sure the username and password match, selecting all the client's
+// data from the database if it does. Store the data into $clientdata
+$clientdata = mysql_query("SELECT * FROM costumer WHERE username='$user' and password='$pass'")
+ or die (mysql_error());
+
+// Put the $clientdata query into an array we can work with
+$data = mysql_fetch_array($clientdata, MYSQL_ASSOC);
+
+// If the username and password matched, we should have one entry in our
+// $clientdata array. If not, we should have 0. So, we can use a simple
+// if/else statement
+if(mysql_num_rows($clientdata) == 1){
+	// Start a new blank session. This will assign the user's server
+	// with a session with an idividual ID
+	session_start();
+
+	// With our session started, we can assign variables for a logged
+	// in user to use until they log out.
+	$_SESSION['customer_id'] = $data['customer_id'];
+	$_SESSION['customer_nm'] = $data['customer_nm'];
+	$_SESSION['customer_uname'] = $data['customer_uname'];
+	$_SESSION['customer_pwd'] = $data['customer_pwd'];
+	$_SESSION['customer_almt'] = $data['customer_almt'];
+	$_SESSION['customer_prov'] = $data['customer_prov'];
+	$_SESSION['customer_kdpos'] = $data['customer_kdpos'];
+	$_SESSION['customer_telp'] = $data['customer_telp'];
+	
+
+	// Redirect ke halaman muka
+	header('Location: hore.php');
+}else{
+?><script language="javascript">
+			alert("username dan password tidak cocok!!");
+			document.location="coba.php";
+			</script><?
+}
 ?>

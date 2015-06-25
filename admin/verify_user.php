@@ -6,7 +6,7 @@ include 'config.php';
 $uname=$_POST['u_name'];
 $pass=$_POST['pass'];
 
-$qry=mysql_query("SELECT * FROM login WHERE user='$uname'", $con);
+$qry=mysql_query("SELECT * FROM admin WHERE admin_uname='$uname'", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -16,7 +16,7 @@ else
 $row=mysql_fetch_array($qry);
 //echo $row["user"]." ".$row["password"]."<br/>";
 
-if($_POST['u_name']==$row["user"]&& md5($_POST['pass'])==$row["password"])
+if($_POST['u_name']==$row["admin_uname"]&& md5($_POST['pass'])==$row["admin_pwd"])
 {
 session_start();
 $_SESSION['name']=$_POST['u_name'];

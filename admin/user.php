@@ -31,10 +31,10 @@ include 'main.php';
 isset() is used to check wheather arctile id is received through url from "index.php" file and if it is set corresponding arctile is displayted using SELECT statement.
 */
 
-if(isset($_GET['kd_costumer']))
+if(isset($_GET['customer_id']))
 {
-$kd_costumer=$_GET['kd_costumer'];
-$qry=mysql_query("SELECT * FROM costumer WHERE kd_costumer=$kd_costumer", $con);
+$customer_id=$_GET['customer_id'];
+$qry=mysql_query("SELECT * FROM customer WHERE customer_id=$customer_id", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -46,42 +46,42 @@ while($row=mysql_fetch_array($qry))
 ?>
 <dl>
 <dt><label for="title">Kode Costumer</label></dt>
-<dd><?echo "<h3>".$row['kd_costumer']."</h3>";?></dd>
+<dd><?echo "<h3>".$row['customer_id']."</h3>";?></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Nama Costumer</label></dt>
-<dd><?echo "<h3>".$row['nm_costumer']."</h3>";?></dd>
+<dd><?echo "<h3>".$row['customer_nm']."</h3>";?></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Username</label></dt>
-<dd><?echo "<h3>".$row['username']."</h3>";?></dd>
+<dd><?echo "<h3>".$row['customer_uname']."</h3>";?></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Password</label></dt>
-<dd><?echo "<h3>".$row['password']."</h3>";?></dd>
+<dd><?echo "<h3>".$row['customer_pwd']."</h3>";?></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Alamat</label></dt>
-<dd><?echo "<h3>".$row['alamat']."</h3>";?></dd>
+<dd><?echo "<h3>".$row['customer_almt']."</h3>";?></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Provinsi</label></dt>
-<dd><?echo "<h3>".$row['provinsi']."</h3>";?></dd>
+<dd><?echo "<h3>".$row['customer_prov']."</h3>";?></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Kode Pos</label></dt>
-<dd><?echo "<h3>".$row['kd_pos']."</h3>";?></dd>
+<dd><?echo "<h3>".$row['customer_kdpos']."</h3>";?></dd>
 </dl>
 
 <dl>
 <dt><label for="title">No Telpon</label></dt>
-<dd><?echo "<h3>".$row['no_tlp']."</h3>";?></dd>
+<dd><?echo "<h3>".$row['customer_telp']."</h3>";?></dd>
 </dl>
 <?
 }

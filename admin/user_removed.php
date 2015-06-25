@@ -17,8 +17,8 @@ include 'config.php';
 ?>
 
 <?php
-$kd_costumer=$_GET['kd_costumer'];
-$qry=mysql_query("DELETE FROM costumer WHERE kd_costumer='$kd_costumer'", $con);
+$customer_id=$_GET['customer_id'];
+$qry=mysql_query("DELETE FROM customer WHERE customer_id='$customer_id'", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());

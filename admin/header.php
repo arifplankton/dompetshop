@@ -54,7 +54,7 @@ tinyMCE.init({
 <div class="wrapper col1">
   <div id="header">
     <div id="logo">
-      <h1><a href="#">Dompet Original</a></h1>
+      <h1><a href="index.php">Dompet Original</a></h1>
       <p>Selamat Datang Admin</p>
     </div>
     <div id="topnav">

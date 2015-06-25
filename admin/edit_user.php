@@ -25,10 +25,10 @@ include 'main.php';
      <h2>Edit Costumer</h2>
  
 <?php
-if(isset($_GET['kd_costumer']))
+if(isset($_GET['customer_id']))
 {
-$kd_costumer=$_GET['kd_costumer'];
-$qry=mysql_query("SELECT * FROM costumer WHERE kd_costumer=$kd_costumer", $con);
+$customer_id=$_GET['customer_id'];
+$qry=mysql_query("SELECT * FROM customer WHERE customer_id=$customer_id", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -36,58 +36,59 @@ die("Query Failed: ". mysql_error());
 
                 /* Fetching data from the field "title" */
 $row=mysql_fetch_array($qry);
-$row['kd_costumer'];
-$row['nm_costumer'];
-$row['username'];
-$row['password'];
-$row['alamat'];
-$row['provinsi'];
-$row['kd_pos'];
-$row['no_tlp'];
+$row['customer_id'];
+$row['customer_nm'];
+$row['customer_uname'];
+$row['customer_pwd'];
+$row['customer_almt'];
+$row['customer_prov'];
+$row['customer_kdpos'];
+$row['customer_telp'];
   }
 
 ?>
  <div class="form">
 <form action="user_edited.php" method="post" enctype="multipart/form-data" name="form1" id="form1" class="niceform">
    <fieldset>
-   <dl>
-<dt><label for="title">Kode Costumer</dt>
-<dd><input type="text" name="kd_costumer" id="kd_costumer" value="<?php echo $row['kd_costumer']; ?>" /></dd>
+
+<dl>
+<dt><label for="title">Id Customer</label></dt> 
+<dd><input type="text" name="customer_id" id="customer_id" value="<?php echo $row['customer_id']; ?>" /></dd>
 </dl>
 
 <dl>
-<dt><label for="title">Nama Costumer</label></dt> 
-<dd><input type="text" name="nm_costumer" id="nm_costumer" value="<?php echo $row['nm_costumer']; ?>" /></dd>
+<dt><label for="title">Nama Customer</label></dt> 
+<dd><input type="text" name="customer_nm" id="customer_nm" value="<?php echo $row['customer_nm']; ?>" /></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Username</label></dt> 
-<dd><input type="text" name="username" id="username" value="<?php echo $row['username']; ?>" /></dd>
+<dd><input type="text" name="customer_uname" id="customer_uname" value="<?php echo $row['customer_uname']; ?>" /></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Password</label></dt> 
-<dd><input type="text" name="password" id="pasword" value="<?php echo $row['password']; ?>" /></dd>
+<dd><input type="text" name="customer_pwd" id="customer_pwd" value="<?php echo $row['customer_pwd']; ?>" /></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Alamat</label></dt>
-<dd><input type="text" name="alamat" id="alamat" value="<?php echo $row['alamat']; ?>" /></dd>
+<dd><input type="text" name="customer_almt" id="customer_almt" value="<?php echo $row['customer_almt']; ?>" /></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Provinsi</label></dt>
-<dd><input type="text" name="provinsi" id="provinsi" value="<?php echo $row['provinsi']; ?>" /></dd>
+<dd><input type="text" name="customer_prov" id="customer_prov" value="<?php echo $row['customer_prov']; ?>" /></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Kode Pos</label></dt>
-<dd><input type="text" name="kd_pos" id="kd_pos" value="<?php echo $row['kd_pos']; ?>" /></dd>
+<dd><input type="text" name="customer_kdpos" id="customer_kdpos" value="<?php echo $row['customer_kdpos']; ?>" /></dd>
 </dl>
 
 <dl>
 <dt><label for="title">No Telpon</label></dt>
-<dd><input type="text" name="no_tlp" id="no_tlp" value="<?php echo $row['no_tlp']; ?>" /></dd>
+<dd><input type="text" name="customer_telp" id="customer_telp" value="<?php echo $row['customer_telp']; ?>" /></dd>
 </dl>
 
 <dl>

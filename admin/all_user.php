@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if(isset($_SESSION['name']))
@@ -45,7 +44,7 @@ echo"<td colspan='3'>Ubah</td>";
 echo"</tr>";
 if(isset($_GET['id'])=="viewall")
 {
-$qry=mysql_query("SELECT * FROM costumer order by costumer.kd_costumer DESC ", $con);
+$qry=mysql_query("SELECT * FROM customer order by customer.customer_id ASC ", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -56,18 +55,18 @@ while($row=mysql_fetch_array($qry))
 {
 
 echo "<tr>";
-echo "<td><a ".$row['kd_costumer'].">".$row['kd_costumer']."</a></td>";
-echo "<td><a ".$row['kd_costumer'].">".$row['nm_costumer']."</a></td>";
-echo "<td><a ".$row['kd_costumer'].">".$row['username']."</a></td>";
-echo "<td><a ".$row['kd_costumer'].">".$row['password']."</a></td>";
-echo "<td><a ".$row['kd_costumer'].">".$row['alamat']."</a></td>";
-echo "<td><a ".$row['kd_costumer'].">".$row['provinsi']."</a></td>";
-echo "<td><a ".$row['kd_costumer'].">".$row['kd_pos']."</a></td>";
-echo "<td><a ".$row['kd_costumer'].">".$row['no_tlp']."</a></td>";
+echo "<td><a ".$row['customer_id'].">".$row['customer_id']."</a></td>";
+echo "<td><a ".$row['customer_id'].">".$row['customer_nm']."</a></td>";
+echo "<td><a ".$row['customer_id'].">".$row['customer_uname']."</a></td>";
+echo "<td><a ".$row['customer_id'].">".$row['customer_pwd']."</a></td>";
+echo "<td><a ".$row['customer_id'].">".$row['customer_almt']."</a></td>";
+echo "<td><a ".$row['customer_id'].">".$row['customer_prov']."</a></td>";
+echo "<td><a ".$row['customer_id'].">".$row['customer_kdpos']."</a></td>";
+echo "<td><a ".$row['customer_id'].">".$row['customer_telp']."</a></td>";
 
-echo "<td><a href=edit_user.php?kd_costumer=".$row['kd_costumer'].">edit</a></td>";
-echo "<td><a href=user_removed.php?kd_costumer=".$row['kd_costumer'].">delete</a></td>";
-echo "<td><a href=user.php?kd_costumer=".$row['kd_costumer'].">lihat</a></td>";
+echo "<td><a href=edit_user.php?customer_id=".$row['customer_id'].">edit</a></td>";
+echo "<td><a href=user_removed.php?customer_id=".$row['customer_id'].">delete</a></td>";
+echo "<td><a href=user.php?customer_id=".$row['customer_id'].">lihat</a></td>";
 
 echo "</tr>";
 }
@@ -77,12 +76,12 @@ echo"<form>";
 }
 ?>
   <?php
-if(isset($_GET['nam']))
+if(isset($_GET['customer_id']))
 {
-$nam=$_GET['nam'];
+$nama=$_GET['customer_id'];
 
 
-$qry=mysql_query("SELECT * FROM costumer WHERE nama='$nam' order by costumer.kd_costumer DESC", $con);
+$qry=mysql_query("SELECT * FROM customer WHERE nama='$customer_id' order by customer.customer_id ASC", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -92,9 +91,9 @@ while($row=mysql_fetch_array($qry))
 {
 //echo $row['title'];
 echo "<tr>";
-echo "<td><a href=user.php?id=".$row['id'].">".$row['nama']."</a></td>";
-echo "<td><a href=edit_user.php?id=".$row['id'].">edit</a></td>";
-echo "<td><a href=user_removed.php?id=".$row['id'].">delete</a></td>";
+echo "<td><a href=user.php?id=".$row['customer_id'].">".$row['nama']."</a></td>";
+echo "<td><a href=edit_user.php?id=".$row['customer_id'].">edit</a></td>";
+echo "<td><a href=user_removed.php?id=".$row['customer_id'].">delete</a></td>";
 echo "</tr>";
 }
 echo "</table>";

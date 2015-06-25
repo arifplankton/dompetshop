@@ -1,5 +1,3 @@
-
-
 <?php
 
 session_start();
@@ -32,12 +30,7 @@ include 'main.php';
  <div class="form">
 <form action="confirm_created.php" method="post" enctype="multipart/form-data" name="form1" id="form1" class="niceform">
    <fieldset>
-
-                               
-                           
-                     
-
-
+                        
   
 </select>
 </dd>

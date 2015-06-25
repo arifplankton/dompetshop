@@ -18,16 +18,16 @@ include 'config.php';
 ?>
 
 <?php
-
-$kd_provinsi=$_POST['kd_provinsi'];
-$nm_provinsi=$_POST['nm_provinsi'];
-$ongkos_kirim=$_POST['ongkos_kirim'];
+$provinsi_id=$_POST['provinsi_id'];
+$provinsi_nm=$_POST['provinsi_nm'];
+$provinsi_ongkos=$_POST['provinsi_ongkos'];
 ?>
 
 
 <?php
 
-$qry=mysql_query("UPDATE provinsi SET kd_provinsi='$kd_provinsi',nm_provinsi='$nm_provinsi',ongkos_kirim='$ongkos_kirim'", $con);
+$qry=mysql_query("UPDATE provinsi SET  provinsi_nm='$provinsi_nm',provinsi_ongkos='$provinsi_ongkos' 
+	 WHERE provinsi_id='$provinsi_id'", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -36,13 +36,13 @@ else
 {
 ?><script language="javascript">
 			alert("provinsi Sukses Di Update!!");
-			document.location="all_user.php?id=viewall";
+			document.location="all_provinsi.php?id=viewall";
 			</script><?
 }
 
 ?>
 
-<a href=all_provinsi .php?id=viewall>Go back </a>
+<a href=all_provinsi.php?provinsi_id=viewall>Go back </a>
 </div>
 </div>
 </body>

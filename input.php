@@ -7,36 +7,36 @@ include "tanggal.php";
 $input=$_GET[input];
 $sid = session_id();
 $inputform=$_GET[inputform];
+$customer=$_GET['customer_id'];
+
 
 if($input=='add'){
 	
-	$sql = mysql_query("SELECT kd_produk FROM cart WHERE kd_produk='$_GET[id]' AND id_session='$sid'");
+	$sql = mysql_query("SELECT produk_id FROM pesan WHERE produk_id = '$_GET[id]' AND id_session='$sid'");
 	$num = mysql_num_rows($sql);
 	if ($num==0){
-		mysql_query("INSERT INTO cart(kd_produk,
-											id_session,
-											tgl_cart,
-											qty)
+		mysql_query("INSERT INTO pesan(produk_id,
+											customer_id,tgl_pesan,pesan_jml,status)
 									VALUES	('$_GET[id]',
-											'$sid',
-											'$tgl_sekarang',
-											'1')");
+											'$customer',
+											now(),
+											'1','$status')");
 	}
 	else {
-		mysql_query("UPDATE cart SET qty = qty + 1 WHERE id_session = '$sid' AND kd_produk='$_GET[id]'");
+		mysql_query("UPDATE pesan SET pesan_jml = pesan_jml + 1 WHERE id_session = '$sid' AND produk_id = '$_GET[id]'");
 	}
 	deletecart();
-	header('location:cart.php');
+	header('location:chart.php');
 	}				
 elseif ($input=='delete'){
-	mysql_query("DELETE FROM cart WHERE id_cart='$_GET[id]'");
-	header('location:cart.php');
+	mysql_query("DELETE FROM pesan WHERE pesan_id='$_GET[id]'");
+	header('location:chart.php');
 	}
 elseif ($input=='inputform'){
 	function cart_content(){
 	$ct_content = array();
 	$sid = session_id();
-	$sql = mysql_query("SELECT * FROM cart WHERE id_session='$sid'");
+	$sql = mysql_query("SELECT * FROM pesan WHERE id_session='$sid'");
 	
 	while ($r=mysql_fetch_array($sql)) {
 		$ct_content[] = $r;
@@ -65,7 +65,7 @@ elseif ($input=='inputform'){
 											'$sid')");
 		}
 	for($i=0; $i<$jml; $i++){
-		mysql_query("DELETE FROM cart WHERE id_cart = {$ct_content[$i]['id_cart']}");
+		mysql_query("DELETE FROM pesan WHERE pesan_id = {$ct_content[$i]['pesan_id']}");
 		}
 		echo "<script>window.alert('Terima Kasih Pesanan Anda Sedang Kami Proses');
         window.location=('index.php')</script>";

@@ -35,19 +35,15 @@ include 'main.php';
                   
                
 </dd>
-<dl>
-<dt><label for="title">Kode Provinsi</label></dt>
-<dd><input type="text" name="kd_provinsi" id="kd_provinsi" value="" size="35" /></dd>
-</dl>
 
 <dl>
 <dt><label for="title">Nama Provinsi</label></dt>
-<dd><input type="text" name="nm_provinsi" id="nm_provinsi" value="" size="35" /></dd>
+<dd><input type="text" name="provinsi_nm" id="provinsi_nm" value="" size="35" /></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Ongkos Kirim</label></dt>
-<dd><input type="text" name="ongkos_kirim" id="ongkos_kirim" value="" size="35" /></dd>
+<dd><input type="text" name="provinsi_ongkos" id="provinsi_ongkos" value="" size="35" /></dd>
 </dl>
 
 <dl>

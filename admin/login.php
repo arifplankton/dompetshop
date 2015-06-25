@@ -1,13 +1,18 @@
-<html><head><title>Login Area</title></head>
+<html>
+<head> <title> Login Admin </title> </head>
 <body>
-<br><br><br><br><br><br><br><br><br><br><br>
-<table border=1 align=center>
- <form action="verify_user.php" method="post">
-<tr><td>username</td><td><input type="text" name="u_name" id="u_name" size="54" /></tr>
-<tr><td>password</td><td><input type="password" name="pass" id="pass" size="54" /></tr>
-<tr><td><input type="submit" name="submit" id="submit" value="Login" /></td><td></tr>
 
+<link rel="stylesheet" type="text/css" href="css/login.css" />
+<div class="container">
 
-</form>
-</table></body>
+	<form action="verify_user.php" method="post" class="form-signin">
+		<h1 class="form-signin-heading text-muted">Sign In Admin</h1>
+		<input type="text" class="form-control" name="u_name" id="u_name" placeholder="Username" required="" autofocus="">
+		<input type="password" class="form-control" name="pass" id="pass"placeholder="Password" required=""> </br>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">
+			Sign In </button>
+	</form>
+
+</div>
+</body>
 </html>

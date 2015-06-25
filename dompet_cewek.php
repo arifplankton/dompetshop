@@ -52,7 +52,7 @@ include 'header.php';
                 <div class="row">
                     <?php
                      require_once('config.php');    
-                            $query="SELECT * from barang WHERE kd_kategori='dompet cewek' order by input_date desc";
+                            $query="SELECT * from produk WHERE kategori_id ='dompet cewek' order by tgl_input desc";
                             $result=mysql_query($query) or die(mysql_error());
                             $no=1;
                             //proses menampilkan data
@@ -65,13 +65,15 @@ include 'header.php';
                             <img src="admin/<?php echo $rows['gambar'];?>" width="20px" height="250px" />
                             <div class="caption">
                                 <h4 class="pull-right">Rp.<?php echo $rows['hrg_jual'];?>,-</h4>
-                                <h4><a href="detail_produk.php?id=<?php echo $rows['kd_produk'];?>"><?php echo $rows['nm_produk'];?></a></h4>
-                                Detail Produk:<?php echo $rows['deskripsi'];?>                            </div>
+                                <h4><a href="detail_produk.php?id=<?php echo $rows['produk_id'];?>"><?php echo $rows['produk_nm'];?></a></h4>
+                                Detail Produk:<?php echo $rows['produk_deskripsi'];?>                            
+                                </div>
                             <div class="ratings">
                                 
 
-                                    <button class = "btn btn-mini btn-block btn-primary" type="button">add to chart</button> 
-
+                                    <a href="input.php?input=add&id=<?php echo $rows['kd_produk']; ?>" style="text-decoration:none; 
+                                    color:white;" ><input type="button" class = "btn btn-mini btn-block btn-primary" value="Pesan"/></a>
+                                    
                                                            
                         </div>
                         </div>

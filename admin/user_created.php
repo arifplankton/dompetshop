@@ -30,7 +30,7 @@ include 'config.php';
 
 <?php
 $qry=mysql_query("INSERT INTO costumer(kd_costumer,nm_costumer,username,password,alamat,provinsi,kd_pos,no_tlp)VALUES
-	('$kd_costumer','$nm_costumer','$username','$password','$alamat','$provinsi','kd_pos','$no_tlp')", $con);
+	('$kd_costumer','$nm_costumer','$username','$password','$alamat','$provinsi','kd_pos','$no_tlp')";
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());

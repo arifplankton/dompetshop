@@ -20,36 +20,28 @@ include 'config.php';
 ?>
 
 <?php
-$id=$_POST['id'];
-$title=$_POST['title'];
+$id=$_POST['blog_id'];
+$title=$_POST['blog_judul'];
 $tgl_post=$_POST['tgl_post'];
-$gambar=$_FILES["gambar"]["name"];
-$contents=$_POST['contents'];
+$gambar=$_FILES["blog_gambar"]["name"];
+$contents=$_POST['blog_isi'];
 ?>
 
 <?php
-if($gambar)
-{
+if(!empty($_FILES['blog_gambar']['tmp_name'])){
+	$blog_judul=$_POST['blog_judul'];
+	$tgl_post=$_POST['tgl_post'];
+	$blog_gambar=$_FILES["blog_gambar"]["name"];
+	$blog_isi=$_POST['blog_isi'];
+	$file_gambar = "gambar/".$blog_gambar;
 
-$name=$_FILES['gambar']['name'];
-$gambar=$_FILES['gambar']['tmp_name'];
-$err=$_FILES['gambar']['error'];
-if($err==0)
-{
-move_uploaded_file($gambar, $name);
+	move_uploaded_file($_FILES["blog_gambar"]["tmp_name"], $file_gambar);
+
+
 }
 
-$qry=mysql_query("UPDATE blog SET gambar='$gambar' WHERE id='$id'", $contents);
-if(!$qry)
-{
-die("Query Failed: ". mysql_error());
-}
-}
-?>
 
-<?php
-
-$qry=mysql_query("UPDATE blog SET title='$title',tgl_post='$tgl_post',gambar='$gambar',contents='$contents' WHERE id='$id'", $con);
+$qry=mysql_query("UPDATE blog SET blog_judul='$title',tgl_post='$tgl_post',blog_gambar='$gambar',blog_isi='$contents' WHERE blog_id='$id'", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -58,7 +50,7 @@ else
 {
 ?><script language="javascript">
 			alert("Artikel Sukses Di Update!!");
-			document.location="index.php";
+			document.location="article_all.php";
 			</script><?php
 }
 

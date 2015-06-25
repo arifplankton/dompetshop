@@ -12,7 +12,7 @@ die("connection to database failed".mysql_error());
 }
 
 /* select db */
-$dataselect = mysql_select_db("dompet",$con);
+$dataselect = mysql_select_db("poket",$con);
 if(!$dataselect)
 {
 die("Database namelist not selected".mysql_error());

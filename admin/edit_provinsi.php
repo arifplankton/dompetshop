@@ -25,10 +25,10 @@ include 'main.php';
      <h2>Edit Provinsi</h2>
  
 <?php
-if(isset($_GET['kd_provinsi']))
+if(isset($_GET['provinsi_id']))
 {
-$kd_provinsi=$_GET['kd_provinsi'];
-$qry=mysql_query("SELECT * FROM provinsi WHERE kd_provinsi=$kd_provinsi", $con);
+$prov=$_GET['provinsi_id'];
+$qry=mysql_query("SELECT * FROM provinsi WHERE provinsi_id=$prov", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -36,29 +36,29 @@ die("Query Failed: ". mysql_error());
 
                 /* Fetching data from the field "title" */
 $row=mysql_fetch_array($qry);
-
- $row['kd_provinsi'];
- $row['nm_provinsi'];
- $row['ongkos_kirim'];
+ $row['provinsi_id'];
+ $row['provinsi_nm'];
+ $row['provinsi_ongkos'];
 }
 
 ?>
  <div class="form">
 <form action="provinsi_edited.php" method="post" enctype="multipart/form-data" name="form1" id="form1" class="niceform">
    <fieldset>
+
 <dl>
-<dt><label for="title">Kode Provinsi</label></dt>
-<dd><input type="text" name="kd_provinsi" id="kd_provinsi" value="<?php echo $row['kd_provinsi']; ?>" /></dd>
+<dt><label for="title">Id Provinsi</label></dt>
+<dd><input type="text" name="provinsi_id" id="provinsi_id" value="<?php echo $row['provinsi_id']; ?>" /></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Nama Provinsi</label></dt>
-<dd><input type="text" name="nm_provinsi" id="nm_provinsi" value="<?php echo $row['nm_provinsi']; ?>" /></dd>
+<dd><input type="text" name="provinsi_nm" id="provinsi_nm" value="<?php echo $row['provinsi_nm']; ?>" /></dd>
 </dl>
 
 <dl>
 <dt><label for="title">Ongkos Kirim</label></dt>
-<dd><input type="text" name="ongkos_kirim" id="ongkos_kirim" value="<?php echo $row['ongkos_kirim']; ?>"/></dd>
+<dd><input type="text" name="provinsi_ongkos" id="provinsi_ongkos" value="<?php echo $row['provinsi_ongkos']; ?>"/></dd>
 </dl>
 
 <p align="center">

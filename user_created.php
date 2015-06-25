@@ -1,36 +1,20 @@
 <?php
-session_start();
-if(isset($_SESSION['name']))
-{
-if(!$_SESSION['name']=='admin')
-{
-header("Location:login.php?id=You are not authorised to access this page unless you are administrator of this website");
-}
-}
-else
-{
-header("Location:login.php?id=You are not authorised to access this page unless you are administrator of this website");
-}
-?>
-<?php
-
-
-$kd_costumer=$_POST['kd_costumer'];
-$nm_costumer=$_POST['nm_costumer'];
-$username=$_POST['username'];
-$password=$_POST['password'];
-$alamat=$_POST['alamat'];
-$provinsi=$_POST['provinsi'];
-$kd_pos=$_POST['kd_pos'];
-$no_tlp=$_POST['no_tlp'];
+$customer_nm=$_POST['customer_nm'];
+$customer_uname=$_POST['customer_uname'];
+$customer_pwd= md5($_POST['customer_pwd']);
+$customer_almt=$_POST['customer_almt'];
+$customer_prov=$_POST['customer_prov'];
+$customer_kdpos=$_POST['customer_kdpos'];
+$customer_telp=$_POST['customer_telp'];
 ?>
 <?php
 include 'config.php';
 ?>
 
 <?php
-$qry=mysql_query("INSERT INTO costumer(kd_costumer,nm_costumer,username,password,alamat,provinsi,kd_pos,no_tlp)VALUES
-	('$kd_costumer','$nm_costumer','$username','$password','$alamat','$provinsi','kd_pos','$no_tlp')", $con);
+$qry=mysql_query("INSERT INTO customer(customer_id,customer_nm,customer_uname,customer_pwd,customer_almt,customer_prov,
+	customer_kdpos,customer_telp)VALUES ('','$customer_nm','$customer_uname','$customer_pwd','$customer_almt',
+	'$customer_prov','$customer_kdpos','$customer_telp')", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());

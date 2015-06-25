@@ -56,7 +56,7 @@ include 'main.php';
 <d1>
 <dt><label for="title">Kategori</label></dt>
                     
-                <dd> <select size="1" name="kd_kategori" id="kd_kategori" size="50">          
+                <dd> <select size="1" name="kategori_id" id="kategori_id" size="50">          
 
 					<?php
 					$qry=mysql_query("SELECT * FROM kategori ", $con);
@@ -67,7 +67,7 @@ include 'main.php';
 
 					while($row=mysql_fetch_array($qry))
 					{
-					echo "<option value='".$row['nm_kategori']."'>".$row['nm_kategori']."</option>";
+					echo "<option value='".$row['kategori_nm']."'>".$row['kategori_nm']."</option>";
 					}
 					?>
   
@@ -77,7 +77,7 @@ include 'main.php';
 
 <dl>
 <dt><label for="title">Nama Produk</label></dt>
-<dd><input type="text" name="nm_produk" id="nm_produk" value="" size="25"/></dd>
+<dd><input type="text" name="produk_nm" id="produk_nm" value="" size="25"/></dd>
 </dl>
 
 <dl>
@@ -108,8 +108,8 @@ include 'main.php';
 <dd><input type="file" name="gambar" id="gambar" /></dd>
 </dl>
 
-<label for="title"></label>
-<textarea name="deskripsi" id="deskripsi" cols="50" rows="10" ></textarea>
+<label for="title">Deskripsi</label>
+<textarea name="produk_deskripsi" id="produk_deskripsi" cols="50" rows="10" ></textarea>
 <dl>
 
 <dt><p align="center"></dt>

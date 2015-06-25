@@ -8,14 +8,34 @@ include 'header.php';
   
   <tr>
     <td align="left" valign="top">
-    <fieldset>
-      <legend class="#">Dompet Original Online Shop</legend>
-      <ul>
-      <li>Dompet Original Obline Shop adalah penyedia dompet dengna kulitas terbaik di Indonesia.
-      Dompet yang dijual berasal dari para pengrajin dompet langsung. </li>
-      </ul>
-      </fieldset> 
+    
 </body>
+
+
+
+<div class="row">
+            <div class="col-lg-12">
+               
+                <ol class="breadcrumb">
+                    <li><a href="index.php">Home</a>
+                    </li>
+                    <li class="active">About</li>
+                </ol>
+
+                <div class="col-md-15">
+                
+                <p>Dompet Original Online Shop adalah penyedia dompet dengan kulitas terbaik di Indonesia.
+				      Dompet yang dijual berasal dari para pengrajin dompet langsung.</p>
+                </div>
+
+               
+            </div>
+        </div>
+
+
+
 <?php 
 include 'footer.php';
  ?>
+
+ 

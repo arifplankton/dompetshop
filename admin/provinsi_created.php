@@ -15,9 +15,8 @@ header("Location:login.php?id=You are not authorised to access this page unless 
 
 <?php
 
-$kd_provinsi=$_POST['kd_provinsi'];
-$nm_provinsi=$_POST['nm_provinsi'];
-$ongkos_kirim=$_POST['ongkos_kirim'];
+$provinsi_nm=$_POST['provinsi_nm'];
+$provinsi_ongkos=$_POST['provinsi_ongkos'];
 
 ?>
 
@@ -26,7 +25,8 @@ include 'config.php';
 ?>
 
 <?php
-$qry=mysql_query("INSERT INTO provinsi(kd_provinsi,nm_provinsi,ongkos_kirim)VALUES('$kd_provinsi','$nm_provinsi','$ongkos_kirim')", $con);
+$qry=mysql_query("INSERT INTO provinsi(provinsi_id,provinsi_nm,provinsi_ongkos)
+	VALUES('','$provinsi_nm','$provinsi_ongkos')", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
@@ -35,7 +35,7 @@ else
 {
 ?><script language="javascript">
 			alert("Provinsi Sukses Di Buat!!");
-			document.location="index.php";
+			document.location="create_provinsi.php";
 			</script><?php
 }
 ?>

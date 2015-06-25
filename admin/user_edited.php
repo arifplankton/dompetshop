@@ -18,22 +18,23 @@ include 'config.php';
 ?>
 
 <?php
-
-$kd_costumer=$_POST['kd_costumer'];
-$nm_costumer=$_POST['nm_costumer'];
-$username=$_POST['username'];
-$password=$_POST['password'];
-$alamat=$_POST['alamat'];
-$provinsi=$_POST['provinsi'];
-$kd_pos=$_POST['kd_pos'];
-$no_tlp=$_POST['no_tlp'];
+$customer_id=$_POST['customer_id'];
+$customer_nm=$_POST['customer_nm'];
+$customer_uname=$_POST['customer_uname'];
+$customer_pwd=$_POST['customer_pwd'];
+$customer_almt=$_POST['customer_almt'];
+$customer_prov=$_POST['customer_prov'];
+$customer_kdpos=$_POST['customer_kdpos'];
+$customer_telp=$_POST['customer_telp'];
 ?>
 
 
 <?php
 
-$qry=mysql_query("UPDATE costumer SET kd_costumer='$kd_costumer',nm_costumer='$nm_costumer',username='$username',
-	password='$password',alamat='$alamat',provinsi='$provinsi',kd_pos='$kd_pos',no_tlp='$no_tlp' WHERE kd_costumer='$kd_costumer'", $con);
+$qry=mysql_query("UPDATE customer SET customer_nm='$customer_nm',customer_uname='$customer_uname',
+	customer_pwd='$customer_pwd',customer_almt='$customer_almt',customer_prov='$customer_prov',customer_kdpos='$customer_kdpos',
+	customer_telp='$customer_telp'
+	 WHERE customer_id='$customer_id'", $con);
 if(!$qry)
 {
 die("Query Failed: ". mysql_error());
