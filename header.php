@@ -60,7 +60,11 @@ session_start();
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span> 
-                        <strong><?php echo"" . $_SESSION['customer_uname'] .  "" ;?></strong>
+                        <strong><?php  
+                                if (isset($_SESSION['customer_uname'])) $status = $_SESSION['customer_uname']; 
+                                else $status = "Login First"; 
+                                echo $status;  
+                                ?></strong>
                         <span class="glyphicon glyphicon-chevron-down"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -69,14 +73,23 @@ session_start();
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <p class="text-center">
-                                            <span class="glyphicon glyphicon-user icon-size"></span>
+                                           
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-left"><strong><?php echo"" . $_SESSION['customer_nm'] .  "" ;?></strong></p>
+                                        <p class="text-left"><strong><?php  
+                                if (isset($_SESSION['customer_uname'])) $status = $_SESSION['customer_nm']; 
+                                else $status = "Helo guys :D silahkan login untuk shoping"; 
+                                echo $status;  
+                                ?></strong></p>
                                         <p class="text-left small">correoElectronico@email.com</p>
                                         <p class="text-left">
-                                            <a href="user.php" class="btn btn-primary btn-block btn-sm">Dashboard</a>
+                                        <?php  
+                                if (isset($_SESSION['customer_uname'])) $status = "<a href='user.php' class='btn btn-primary btn-block btn-sm'>Dashboard</a>"; 
+                                else $status = "<a href='login.php' class='btn btn-primary btn-block btn-sm'>Login</a>"; ; 
+                                echo $status;  
+                                ?>
+                                            
                                         </p>
                                     </div>
                                 </div>
@@ -88,7 +101,11 @@ session_start();
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <p>
-                                            <a href="logout.php" class="btn btn-danger btn-block">logout</a>
+                                            <?php  
+                                if (isset($_SESSION['customer_uname'])) $status = "<a href='logout.php' class='btn btn-primary btn-block btn-sm'>Logout</a>"; 
+                                else $status = "" ; 
+                                echo $status;  
+                                ?>
                                         </p>
                                     </div>
                                 </div>

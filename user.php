@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include 'userheader.php';
 include 'config.php';
 
 
@@ -40,3 +40,4 @@ echo " <tr>";
 
 echo "</table>";
 ?>
+<?php include "footer.php";?>

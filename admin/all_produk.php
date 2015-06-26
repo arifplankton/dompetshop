@@ -12,25 +12,28 @@ else
 header("Location:login.php?id=You are not authorised to access this page unless you are administrator of this website");
 }
 ?>
+
+<head>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+
 <?php
 include 'config.php';
 include 'header.php';
 include"main.php";
 ?>
-<div class="right_content">            
-        
-               
-    
-<div id="left">
-<b>Daftar Produk Dompet Original</b>
-</div>
-</br>
-<div id="right">
+<div class="table table-bordered">
+<div class="jumbotron">        
+                  
+ 
+<h2>Daftar Produk Dompet Original</h2>
+
+
 
     <?php
 	echo"<form>";
-echo "<table border='1' width='100%' height='100%'>";
-	echo "<tr>";
+echo "<table class='table table-bordered' >";
+	echo "<tr  class='success'>";
 echo"<td size='54'>Kode produk</td>";
 echo"<td>Kategori</td>";
 echo"<td>Nama Produk</td>";
@@ -55,7 +58,7 @@ die("Query Failed: ". mysql_error());
 while($row=mysql_fetch_array($qry))
 {
 
-echo "<tr>";
+echo "<tr >";
 echo "<td><a ".$row['produk_id'].">".$row['produk_id']."</a></td>";
 echo "<td><a ".$row['produk_id'].">".$row['kategori_id']."</a></td>";
 echo "<td><a ".$row['produk_id'].">".$row['produk_nm']."</a></td>";
@@ -106,7 +109,7 @@ echo "</table>";
                     
   </div>   <!--end of center content -->               
                     
-                    
+     <div class='well' align='right'><a class='btn btn-primary'  href='printproduk.php'>Cetak PDF</a></div>               
     
     
     <div class="clear"></div>

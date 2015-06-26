@@ -17,20 +17,24 @@ include 'config.php';
 include 'header.php';
 include"main.php";
 ?>
-<div class="right_content">            
-        
-               
-    
+
+        <head>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        </head>       
+            
 <div id="left">
+<div class="table table-bordered">            
+        <div class="jumbotron">
 <b>Daftar Provinsi Tujuan Kirim </b>
 </div>
 </br>
 <div id="right">
+<div class="jumbotron">
 
     <?php
 	echo"<form>";
 echo "<table border='1' width='100%' height='100%'>";
-	echo "<tr>";
+	echo "<tr >";
 echo"<td size='30'>Kode Provinsi</td>";
 echo"<td>Nama Provinsi</td>";
 echo"<td>Provinsi Ongkos</td>";
@@ -93,9 +97,9 @@ echo "</table>";
             
                     
   </div>   <!--end of center content -->               
+                    </div>
                     
-                    
-    
+    <div class='well' align='right'><a class='btn btn-primary'  href='printprovinsi.php'>Cetak PDF</a></div>
     
     <div class="clear"></div>
     </div> <!--end of main content-->

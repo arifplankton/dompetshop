@@ -29,7 +29,7 @@ include 'main.php';
      <h2>Create Provinsi</h2>
 
  <div class="form">
-<form action="provinsi_created.php" method="post" enctype="multipart/form-data" name="form1" id="form1" class="niceform">
+<form action="provinsi_created.php" method="post" enctype="multipart/form-data" name="form1" id="form1" class="form-inline">
    <fieldset>
 
                   

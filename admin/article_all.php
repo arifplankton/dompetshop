@@ -23,16 +23,17 @@ header("Location:login.php?id=You are not authorised to access this page unless 
     <?php
 
   require_once("config.php");
-  $sql = "select * from blog order by blog_id desc";
+  $sql = "select * from blog order by blog_id asc";
   $hasil = mysql_query($sql);
   if (!$hasil){
     die("Gagal Query blog");
   }
 ?>
 <div class="table table-bordered">
-<h2> Data Artikel Domper Original</h2>
-<table border="5" width="50%" align=center style='border-collapse:collapse'>
-<tr>
+<div class="jumbotron">
+<h2> Data Artikel Dompet Original</h2>
+<table class="table table-bordered">
+<tr class="success">
   <th>Id</th><th>Title</th><th>Tangal Post</th><th>Gambar</th><th>Contents</th><th>Update Delete</th>
 </tr>  
 <?php  
@@ -48,6 +49,7 @@ header("Location:login.php?id=You are not authorised to access this page unless 
   }
 ?>
 </table>
+</div>
 
 
 <div class='well' align='right'><a class='btn btn-primary'  href='printblog.php'>Cetak PDF</a></div>

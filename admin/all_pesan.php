@@ -12,17 +12,23 @@ else
 header("Location:login.php?id=You are not authorised to access this page unless you are administrator of this website");
 }
 ?>
+
+<head>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
 <?php
 include 'config.php';
 include 'header.php';
 include"main.php";
 ?>
-<div class="right_content">            
+<div class="table table-bordered">         
         
                
     
 <div id="left">
-<b>Daftar Semua Pesan</b>
+<h2>Daftar Semua Pesan</h2>
 </div>
 </br>
 <div id="right">
@@ -101,9 +107,10 @@ echo "</table>";
                     
   </div>   <!--end of center content -->               
                     
-                    
+                    </body>
     
     
     <div class="clear"></div>
     </div> <!--end of main content-->
 	 </div>
+	 <div class='well' align='right'><a class='btn btn-primary'  href='printpesan.php'>Cetak PDF</a></div>     

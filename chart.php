@@ -1,8 +1,9 @@
 <?php
-
-
-
-include "header.php"; 
+include "header.php";
+if(!isset($_SESSION['customer_uname'])){
+    //Then redirect them to the login page
+    header( 'Location: login.php' );
+}
  
     ?>
             <div class="container theme-showcase" role="main">

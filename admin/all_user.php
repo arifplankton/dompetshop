@@ -12,14 +12,18 @@ else
 header("Location:login.php?id=You are not authorised to access this page unless you are administrator of this website");
 }
 ?>
+
+<head>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+
 <?php
 include 'config.php';
 include 'header.php';
 include"main.php";
 ?>
-<div class="right_content">            
-        
-               
+<div class="table table-bordered">  
+                       
     
 <div id="left">
 <b>Daftar Nama User Dompet Original</b>
@@ -104,7 +108,7 @@ echo "</table>";
                     
   </div>   <!--end of center content -->               
                     
-                    
+    <div class='well' align='right'><a class='btn btn-primary'  href='printcustomer.php'>Cetak PDF</a></div>                
     
     
     <div class="clear"></div>
