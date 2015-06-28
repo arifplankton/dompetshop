@@ -4,11 +4,15 @@ include 'header.php';
 ?>
 <body>
    
-<div class="right_content">    
-     <h2>User Baru</h2>
+<div class="container theme-showcase" role="main">    
+    
+<div class="jumbotron">
+        <h2>Silahkan Isi Data untuk Menjadi Customer Kami </h2>
+        <p align="justify">Selamat datang di dashboard akun customer.selamat menikmati berbelanja di dompetshop.com 
+        marketplace #1 di indonesia yang menyediakan berbagai macam dompet untuk pria maupun wanita so happy shopping :D</p>
 
- <div class="form">
-<form action="user_created.php" method="post" enctype="multipart/form-data" name="form1" id="form1" class="niceform">
+ <div class="form" class="control-group form-group">
+<form action="user_created.php" method="post" enctype="multipart/form-data" name="form1" id="form1" class="form-inline">
    <fieldset>
 
  </select>
@@ -59,6 +63,7 @@ include 'header.php';
 </body>
 </div>
 </div>
+
 <?php
 include 'footer.php';
 ?>

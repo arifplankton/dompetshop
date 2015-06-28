@@ -9,7 +9,7 @@ $pass = mysql_real_escape_string($_POST["password"]);
 
 // Make sure the username and password match, selecting all the client's
 // data from the database if it does. Store the data into $clientdata
-$clientdata = mysql_query("SELECT * FROM customer WHERE customer_uname='$no' and customer_pwd='$pass'")
+$clientdata = mysql_query("SELECT * FROM customer WHERE customer_uname='$no' and customer_pwd='$pass'",$con)
  or die (mysql_error());
 
 // Put the $clientdata query into an array we can work with
@@ -34,9 +34,12 @@ if(mysql_num_rows($clientdata) == 1){
 	$_SESSION['customer_telp'] = $data['customer_telp'];
 	
 	
+?>
+	<script language="javascript">
+			alert("dab");
+			document.location="user.php";
+			</script><?php
 
-	// Redirect ke halaman muka
-	header('Location: user.php');
 }else{
 ?><script language="javascript">
 			alert("username dan password tidak cocok!!");

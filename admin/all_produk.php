@@ -24,8 +24,7 @@ include"main.php";
 ?>
 <div class="table table-bordered">
 <div class="jumbotron">        
-                  
- 
+                   
 <h2>Daftar Produk Dompet Original</h2>
 
 
@@ -58,7 +57,7 @@ die("Query Failed: ". mysql_error());
 while($row=mysql_fetch_array($qry))
 {
 
-echo "<tr >";
+echo "<tr>";
 echo "<td><a ".$row['produk_id'].">".$row['produk_id']."</a></td>";
 echo "<td><a ".$row['produk_id'].">".$row['kategori_id']."</a></td>";
 echo "<td><a ".$row['produk_id'].">".$row['produk_nm']."</a></td>";
@@ -104,6 +103,7 @@ echo "</tr>";
 echo "</table>";
 }
 ?>
+
 </div><!-- end of right content-->
             
                     
@@ -114,4 +114,4 @@ echo "</table>";
     
     <div class="clear"></div>
     </div> <!--end of main content-->
-	 </div>
+	 

@@ -3,8 +3,9 @@
 include 'config.php';
 include 'header.php';
 ?>
-<div class="right_content">
+
 <body>
+<div class= "container theme-showcase">
  	<table width="569" height="811" border="0" align="center" cellpadding="0" cellspacing="0">
   
   <tr>

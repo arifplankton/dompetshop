@@ -1,29 +1,32 @@
 <?php
-session_start();
-error_reporting(0);
-include "config.php";
+require_once("config.php");
+	if (!isset($_SESSION)) {
+		session_start();
+		$sid = session_id();
+	}
+	
 include "tanggal.php";
 
 $input=$_GET[input];
-$sid = session_id();
+
 $inputform=$_GET[inputform];
-$customer=$_GET['customer_id'];
+$customer=$_SESSION['customer_id'];
 
 
 if($input=='add'){
 	
-	$sql = mysql_query("SELECT produk_id FROM pesan WHERE produk_id = '$_GET[id]' AND id_session='$sid'");
+	$sql = mysql_query("SELECT produk_id FROM pesan WHERE produk_id = '$_GET[id]' AND pesan_id='$sid'",$con);
 	$num = mysql_num_rows($sql);
 	if ($num==0){
 		mysql_query("INSERT INTO pesan(produk_id,
-											customer_id,tgl_pesan,pesan_jml,status)
+											customer_id,tgl_pesan,id_session,pesan_jml,status)
 									VALUES	('$_GET[id]',
 											'$customer',
-											now(),
+											now(),$id, 
 											'1','$status')");
 	}
 	else {
-		mysql_query("UPDATE pesan SET pesan_jml = pesan_jml + 1 WHERE id_session = '$sid' AND produk_id = '$_GET[id]'");
+		mysql_query("UPDATE pesan SET pesan_jml = pesan_jml + 1 WHERE id_ses sion = '$sid' AND produk_id = '$_GET[id]'");
 	}
 	deletecart();
 	header('location:chart.php');

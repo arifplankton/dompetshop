@@ -44,16 +44,17 @@ session_start();
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Tentang Kami</a></li>
-                <li><a href="#">Kontak</a></li>
+                <li><a href="about.php">Tentang Kami</a></li>
+                <li><a href="contact.php">Kontak</a></li>
                  <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cara Order
                     <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Link 2</a></li>
+                        <li><a href="alur_order.php">Alur Order</a></li>
+                        <li><a href="create_user.php">Daftar Customer</a></li>
                     </ul>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="blog.php">Blog</a></li>
                  </li>              
              </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -82,7 +83,7 @@ session_start();
                                 else $status = "Helo guys :D silahkan login untuk shoping"; 
                                 echo $status;  
                                 ?></strong></p>
-                                        <p class="text-left small">correoElectronico@email.com</p>
+                                        <p class="text-left small">dompetoriginal@email.com</p>
                                         <p class="text-left">
                                         <?php  
                                 if (isset($_SESSION['customer_uname'])) $status = "<a href='user.php' class='btn btn-primary btn-block btn-sm'>Dashboard</a>"; 

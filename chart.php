@@ -6,6 +6,8 @@ if(!isset($_SESSION['customer_uname'])){
 }
  
     ?>
+
+
             <div class="container theme-showcase" role="main">
                     <h1 class="Judul">Shopping Cart</h1>
                     <?php include "cart2.php";?>
@@ -25,7 +27,7 @@ if(!isset($_SESSION['customer_uname'])){
                             $no = 1;
                             $sql = mysql_query("SELECT * FROM pesan, produk WHERE id_session = '$sid' AND pesan.produk_id=produk.produk_id");
                             $hitung = mysql_num_rows($sql);
-                            if ($hitung < 1){
+                            if ($hitung < 1){ 
                                 echo"<script>window.alert('Cart is Empty....');
                                        window.location=('index.php')</script>";
                                 }
